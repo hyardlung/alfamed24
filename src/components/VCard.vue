@@ -101,6 +101,7 @@ function getImgUrl(img) {
     overflow: hidden
     img
       width: 100%
+      height: 100%
       object-fit: cover
 
   &__title
@@ -119,23 +120,29 @@ function getImgUrl(img) {
     align-items: center
     gap: 10px
     width: fit-content
-    height: 58px
+    min-height: 58px
     color: $white
     background: $red
     border-radius: 10px
     transition: all .3s ease-in-out
+      // flex-direction: column
+      // align-items: start
 
   &__amount
     font-family: 'Lora', serif
     font-size: 32px
     line-height: 100%
     white-space: nowrap
+    @media screen and (max-width: 1023px)
+      font-size: 28px
 
   &__descr
     font-family: 'Open Sans', sans-serif
     font-size: 16px
     line-height: 120%
     text-align: left
+    @media screen and (max-width: 1023px)
+      font-size: 14px
 
   &__estimate
     display: flex
@@ -155,6 +162,7 @@ function getImgUrl(img) {
 
 @media screen and (max-width: 1023px)
   .card
+    max-height: 475px
     &__services
       .card__title
         margin-bottom: 50px
@@ -169,6 +177,7 @@ function getImgUrl(img) {
 
 @media screen and (max-width: 888px)
   .card
+    max-height: 440px
     outline: 2px solid $red
     &__services
       padding: 15px

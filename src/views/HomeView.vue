@@ -59,7 +59,7 @@
     <section id="stocks" class="stocks">
       <div class="container stocks__container">
         <h2 class="title title_small">Акции и скидки</h2>
-        <Carousel :itemsToShow="3" :wrapAround="false">
+        <Carousel :settings="stocksSettings" :breakpoints="stocksBreakpoints">
           <Slide v-for="card in stocksCards" :key="card">
             <v-card
               isStockCard
@@ -191,6 +191,29 @@ const specialists = ref(SPECIALISTS);
 const reviews = ref(REVIEWS);
 const contacts = ref(CONTACTS);
 // const arrow = ref(arrow);
+const stocksSettings = ref({
+  itemsToShow: 3,
+  modelValue: 2,
+  wrapAround: true,
+});
+const stocksBreakpoints = ref({
+  888: {
+    itemsToShow: 3,
+    snapAlign: "start",
+  },
+  768: {
+    itemsToShow: 2.3,
+    snapAlign: "start",
+  },
+  640: {
+    itemsToShow: 2.1,
+    snapAlign: "start",
+  },
+  320: {
+    itemsToShow: 2,
+    snapAlign: "start",
+  },
+});
 
 onMounted(() => {
   replaceCarouselIcons();
@@ -206,47 +229,7 @@ function replaceCarouselIcons() {
     item.innerHTML = `<img src="${arrow}" style="transform: rotate(180deg);" />`;
   });
 }
-// export default {
-//   components: {
-//     VButton,
-//     VCard,
-//     VSpecialistCard,
-//     VTextInput,
-//     VReview,
-//     VContact,
-//     Carousel,
-//     Slide,
-//     Pagination,
-//     Navigation,
-//   },
-//   mounted() {
-//     this.replaceCarouselIcons();
-//   },
-//   data() {
-//     return {
-//       name: "HomeView",
-//       servicesCards: SERVICES_CARDS,
-//       stocksCards: STOCKS_CARDS,
-//       specialists: SPECIALISTS,
-//       reviews: REVIEWS,
-//       contacts: CONTACTS,
-//       arrow: arrow,
-//     };
-//   },
-//   methods: {
-//     replaceCarouselIcons() {
-//       const arrowNext = document.querySelectorAll(".carousel__next");
-//       const arrowPrev = document.querySelectorAll(".carousel__prev");
 
-//       arrowNext.forEach((item) => {
-//         item.innerHTML = `<img src="${arrow}" class="" />`;
-//       });
-//       arrowPrev.forEach((item) => {
-//         item.innerHTML = `<img src="${arrow}" style="transform: rotate(180deg);" />`;
-//       });
-//     },
-//   },
-// };
 </script>
 
 <style lang="sass" scoped>
