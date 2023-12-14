@@ -152,12 +152,17 @@
     </section>
 
     <section id="map" class="map">
-      <yandexMap
-        :coordinates="coordinates"
-        :detailed-controls="detailedControls"
-        :controls="controls"
-        map-type="hybrid"
-      />
+      <div class="container map__container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2362.464994618889!2d91.66788849552385!3d53.69216000120577!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5d2e9f8aea2ef7d7%3A0xe8917e4c450e2e6b!2sAl&#39;famed!5e0!3m2!1sen!2s!4v1702550359482!5m2!1sen!2s"
+          width="100%"
+          height="480"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
     </section>
   </main>
 </template>
@@ -179,11 +184,6 @@ import { SPECIALISTS } from "@/data/specialists";
 import { REVIEWS } from "@/data/reviews";
 import { CONTACTS } from "@/data/contacts";
 import arrow from "@/assets/Arrow_Circle_Right.svg";
-
-import { yandexMap } from "vue-yandex-maps";
-const coordinates = [55, 33];
-const controls = ["fullscreenControl"];
-const detailedControls = { zoomControl: { position: { right: 10, top: 50 } } };
 
 const servicesCards = ref(SERVICES_CARDS);
 const stocksCards = ref(STOCKS_CARDS);
@@ -229,7 +229,6 @@ function replaceCarouselIcons() {
     item.innerHTML = `<img src="${arrow}" style="transform: rotate(180deg);" />`;
   });
 }
-
 </script>
 
 <style lang="sass" scoped>
@@ -242,6 +241,9 @@ function replaceCarouselIcons() {
   .container
     position: relative
     z-index: 1
+
+    iframe
+      border-radius: 20px
 
   &__content
     display: flex
@@ -393,8 +395,4 @@ function replaceCarouselIcons() {
     display: grid
     grid-template-columns: repeat(3, 1fr)
     gap: 30px
-
-
-.yandex-container
-  height: 400px
 </style>
