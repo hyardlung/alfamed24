@@ -1234,11 +1234,6 @@ vue-scrollto@^2.20.0:
   dependencies:
     bezier-easing "2.1.0"
 
-vue-yandex-maps@^1.0.5:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/vue-yandex-maps/-/vue-yandex-maps-1.0.5.tgz#a850da9484635ee9f3d5a361ca2912f15a4c568c"
-  integrity sha512-WZRhyzqKx3gGMLoB2kdOcTBgroN0n/uBgCWrBmDbtG99AV3Swj+MIgupqs2KnuADyjRHgrNZR3feYxTGKf12Og==
-
 vue3-carousel@^0.2.9:
   version "0.2.9"
   resolved "https://registry.yarnpkg.com/vue3-carousel/-/vue3-carousel-0.2.9.tgz#cecb02c34f987f959dae9c056b1377326236ddcf"
