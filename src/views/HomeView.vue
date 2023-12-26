@@ -254,15 +254,11 @@ const specialistBreakpoints = ref({
     snapAlign: "start",
   },
   768: {
-    itemsToShow: 2.3,
-    snapAlign: "start",
-  },
-  640: {
-    itemsToShow: 2.1,
+    itemsToShow: 2,
     snapAlign: "start",
   },
   320: {
-    itemsToShow: 2,
+    itemsToShow: 1,
     snapAlign: "start",
   },
 });

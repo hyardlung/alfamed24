@@ -1,11 +1,13 @@
 <template>
   <v-header />
   <router-view />
+  <v-footer />
 </template>
 
 <script setup>
 // import ref from "vue";
 import VHeader from "./components/VHeader.vue";
+import VFooter from "./components/VFooter.vue";
 
 // const name = ref("App");
 // export default {
