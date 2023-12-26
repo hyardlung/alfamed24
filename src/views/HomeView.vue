@@ -141,7 +141,7 @@
     <section id="reviews" class="reviews">
       <div class="container reviews__container">
         <h2 class="title title_small">Отзывы</h2>
-        <Carousel :itemsToShow="3" :wrapAround="true" :snapAlign="'start'">
+        <Carousel :settings="reviewsSettings" :breakpoints="reviewsBreakpoints">
           <Slide v-for="item in reviews" :key="item">
             <v-review
               :image="item.image"
@@ -219,6 +219,11 @@ const stocksSettings = ref({
   modelValue: 2,
   wrapAround: true,
 });
+const reviewsSettings = ref({
+  itemsToShow: 3,
+  modelValue: 2,
+  wrapAround: true,
+});
 const specialistSettings = ref({
   itemsToShow: 2,
   modelValue: 2,
@@ -242,6 +247,7 @@ const stocksBreakpoints = ref({
     snapAlign: "start",
   },
 });
+
 const specialistBreakpoints = ref({
   888: {
     itemsToShow: 3,
@@ -257,6 +263,21 @@ const specialistBreakpoints = ref({
   },
   320: {
     itemsToShow: 2,
+    snapAlign: "start",
+  },
+});
+
+const reviewsBreakpoints = ref({
+  888: {
+    itemsToShow: 3,
+    snapAlign: "start",
+  },
+  640: {
+    itemsToShow: 2,
+    snapAlign: "start",
+  },
+  320: {
+    itemsToShow: 1,
     snapAlign: "start",
   },
 });
@@ -448,4 +469,7 @@ function replaceCarouselIcons() {
     display: grid
     grid-template-columns: repeat(3, 1fr)
     gap: 30px
+
+    @media screen and (max-width: 767px)
+      grid-template-columns: auto
 </style>
