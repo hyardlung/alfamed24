@@ -50,20 +50,21 @@ function getPhoto(photo) {
 
 <style lang="sass" scoped>
 .specialist
+  max-width: 353px
   display: flex
   flex-direction: column
   gap: 20px
   font-family: 'Open Sans', serif
   font-size: 20px
   line-height: 24px
+  @media screen and (max-height: 767px)
+    align-items: center
 
   &__photo
     width: 100%
-    height: 460px
     border-radius: 20px
     object-fit: cover
     @media screen and (max-height: 767px)
-      height: 400px
 
   &__info
     display: flex
