@@ -17,6 +17,18 @@ const SPECIALISTS = [
     fullname: "Раиль Мингалеев",
     profession: "Стоматолог-ортопед",
   },
+  {
+    photo: "",
+    experience: 9,
+    fullname: "Фролова Ольга Александровна",
+    profession: "Стоматолог-терапевт",
+  },
+  {
+    photo: "",
+    experience: 6,
+    fullname: "Березова Нина Алексеевна",
+    profession: "Стоматолог-терапевт",
+  },
 ];
 
 export { SPECIALISTS };

@@ -46,41 +46,8 @@ function makeEnding(exp) {
 function getPhoto(photo) {
   return "src/assets/specialists/" + photo;
 }
-// export default {
-//   props: {
-//     photo: {
-//       type: String,
-//       required: true,
-//     },
-//     experience: {
-//       type: Number,
-//       required: true,
-//     },
-//     fullname: {
-//       type: String,
-//       required: true,
-//     },
-//     profession: {
-//       type: String,
-//       required: true,
-//     },
-//     data() {
-//       return {
-//         ending: "",
-//       };
-//     },
-//   },
-// methods: {
-// getPhoto(photo) {
-//   return require("@/assets/specialists/" + photo);
-// },
-
-// },
-// created() {
-//   this.makeEnding(this.experience);
-// },
-// };
 </script>
+
 <style lang="sass" scoped>
 .specialist
   display: flex
@@ -92,8 +59,11 @@ function getPhoto(photo) {
 
   &__photo
     width: 100%
+    height: 460px
     border-radius: 20px
     object-fit: cover
+    @media screen and (max-height: 767px)
+      height: 400px
 
   &__info
     display: flex

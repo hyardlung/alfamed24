@@ -1,6 +1,6 @@
 <template>
   <input
-    type="text"
+    :type="type"
     class="input"
     :placeholder="placeholder"
     :style="`max-width: ${w ? w : 364}px`"
@@ -9,6 +9,10 @@
 <script>
 export default {
   props: {
+    type: {
+      type: String,
+      default: "text",
+    },
     placeholder: {
       type: String,
     },

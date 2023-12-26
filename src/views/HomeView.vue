@@ -87,7 +87,11 @@
           <form action="" class="action__form">
             <fieldset class="action__fields">
               <v-text-input placeholder="Имя и фамилия" />
-              <v-text-input placeholder="+7 (___)___-__-__" :w="200" />
+              <v-text-input
+                type="number"
+                placeholder="+7 (___)___-__-__"
+                :w="200"
+              />
             </fieldset>
             <VButton isInverted />
           </form>
@@ -106,11 +110,30 @@
           <v-specialist-card
             v-for="(card, idx) in specialists"
             :key="idx"
-            :photo="card.photo"
+            :photo="card.photo || 'specialist-without-photo.svg'"
             :experience="card.experience"
             :fullname="card.fullname"
             :profession="card.profession"
           />
+        </div>
+        <div class="specialists__cards mobile">
+          <Carousel
+            :settings="specialistSettings"
+            :breakpoints="specialistBreakpoints"
+          >
+            <Slide v-for="card in specialists" :key="card">
+              <v-specialist-card
+                :photo="card.photo || 'specialist-without-photo.svg'"
+                :experience="card.experience"
+                :fullname="card.fullname"
+                :profession="card.profession"
+              />
+            </Slide>
+            <template #addons>
+              <Navigation />
+              <Pagination />
+            </template>
+          </Carousel>
         </div>
       </div>
     </section>
@@ -196,7 +219,30 @@ const stocksSettings = ref({
   modelValue: 2,
   wrapAround: true,
 });
+const specialistSettings = ref({
+  itemsToShow: 2,
+  modelValue: 2,
+  wrapAround: true,
+});
 const stocksBreakpoints = ref({
+  888: {
+    itemsToShow: 3,
+    snapAlign: "start",
+  },
+  768: {
+    itemsToShow: 2.3,
+    snapAlign: "start",
+  },
+  640: {
+    itemsToShow: 2.1,
+    snapAlign: "start",
+  },
+  320: {
+    itemsToShow: 2,
+    snapAlign: "start",
+  },
+});
+const specialistBreakpoints = ref({
   888: {
     itemsToShow: 3,
     snapAlign: "start",
@@ -376,6 +422,13 @@ function replaceCarouselIcons() {
     display: grid
     grid-template-columns: repeat(3, 1fr)
     gap: 30px
+    @media screen and (max-width: 767px)
+      display: none
+
+    &.mobile
+      display: none
+      @media screen and (max-width: 767px)
+        display: block
 
 .reviews
   padding: 60px 0

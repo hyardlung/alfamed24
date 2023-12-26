@@ -55,6 +55,7 @@ import VHeader from "./components/VHeader.vue";
   align-items: center
 
 .carousel__slide
+  align-items: start !important
   padding: 10px 15px
 
 .carousel__prev,
